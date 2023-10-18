@@ -11,9 +11,6 @@ public class CrecienteDecreciente {
 
         Scanner entrada = new Scanner(System.in);
 
-       // System.out.println("introduce un numero (un numero negativo termina el programa):");
-        //ant = entrada.nextInt();
-
         do {
             contador++;
 
