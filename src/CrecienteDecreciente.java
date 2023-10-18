@@ -33,7 +33,7 @@ public class CrecienteDecreciente {
 
         if (creciente > 0 && decreciente == 0 ) System.out.println("La cadena es creciente");
         else if (decreciente > 0 && creciente == 0) System.out.println("La cadena es decreciente");
-        else System.out.println("La cadena no es creciente ni decreciente");
+        else if (creciente > 0 && decreciente > 0 || creciente == 0 && decreciente == 0) System.out.println("La cadena no es creciente ni decreciente");
 
     }
 
