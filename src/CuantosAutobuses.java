@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class CuantosAutobuses {
 
-    public static int plazas = 55;
+    public static final int plazas = 55;
     public static void main(String[] args) {
 
         int autobuses = 0;
@@ -13,10 +13,16 @@ public class CuantosAutobuses {
 
         for (int pasageros = -1; pasageros != 0; grupo++){
 
-            System.out.println("introduce pasageros grupo "+ grupo + ":");
-            pasageros = entrada.nextInt();
-            pasagerostotal += pasageros;
+            do {
 
+                System.out.println("introduce pasageros grupo " + grupo + ":");
+                pasageros = entrada.nextInt();
+                pasagerostotal += pasageros;
+
+                if (pasageros < 0)
+                    System.out.println("no puede haber pasajeros negativos");
+
+            } while (pasageros < 0);
         }
 
         if (pasagerostotal % plazas == 0) autobuses = pasagerostotal / plazas;
