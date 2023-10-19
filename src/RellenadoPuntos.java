@@ -5,39 +5,35 @@ public class RellenadoPuntos {
     public static int cadena;
     public static int entero = 0;
     public static char caracter;
+    public static String texto;
     public static void main(String[] args) {
 
         parametros();
 
-
+        resultado();
 
     }
-/*
-¡¡¡¡¡¡¡¡¡¡NO TOCAR!!!!!!!!!!
-NI EL MISMO PROGRAMADOR SABE COMO FUNCIONA
- */
+
     private static void parametros() {
         Scanner entrada = new Scanner(System.in);
 
         for (int contador = 1; contador <= 3; contador++){
 
+            //entrada de cadena de texto y cuenta la cadena de caracteres.
+
             if (contador == 1){
                 do{
 
                     System.out.println("introduce una cadena de caracteres: ");
-                    String texto = entrada.next();
+                    texto = entrada.next();
                     cadena = texto.length();
 
-                    if (cadena > 80 ) {
-
+                    if (cadena > 80 )
                         System.out.println("la cadena deve tener entre cero y ochenta caracteres");
 
-                    } else if (cadena < 0) {
+                }while (cadena >= 80);
 
-                        System.out.println("la cadena deve tener entre cero y ochenta caracteres");
-
-                    }
-                }while (cadena <= 0 && cadena >= 80);
+                //introduce el numero que tiene que completar con puntos
 
             } else if (contador == 2) {
 
@@ -46,11 +42,11 @@ NI EL MISMO PROGRAMADOR SABE COMO FUNCIONA
                     System.out.println("introduce un numero entero");
                     entero = entrada.nextInt();
 
-                    if (cadena > entero) System.out.println("el numero es inferior a la cadena.");
+                } while (entero < 0);
 
-                } while (entero < cadena);
+                //especifica si los puntos iran a la derecha o izquierda
 
-            } else if (contador == 3) {
+            } else {
 
                 System.out.println("introduce (D) para añadir los puntos a la derecha o (I) para añadirlos a la izquierda");
                 caracter = entrada.next().charAt(0);
@@ -61,6 +57,46 @@ NI EL MISMO PROGRAMADOR SABE COMO FUNCIONA
 
         entrada.close();
 
+    }
+
+    private static void resultado(){
+
+        int totalpuntos = entero - cadena;
+
+        if (cadena > entero){
+
+            //comprueba la longitud de la cadena y muestra si cabe o no
+
+            System.out.println("la cadena no cabe.");
+
+        }else if (caracter == 'I' || caracter == 'i'){
+
+            //añade los puntos a la izquierda
+
+            CalcularPuntos(totalpuntos);
+
+            System.out.print(texto);
+
+        } else if (caracter == 'D' || caracter == 'd') {
+
+            //añade los puntos a la derecha
+
+            System.out.print(texto);
+
+            CalcularPuntos(totalpuntos);
+
+        }else System.out.println("la direccion deve ser I o D");
+
+    }
+
+    private static void CalcularPuntos(int totalpuntos) {
+
+        //añade la cantidad de puntos necesarios para completar la cadena
+        for (int puntos = 0; puntos < totalpuntos; puntos++){
+
+            System.out.print(".");
+
+        }
     }
 
 }
