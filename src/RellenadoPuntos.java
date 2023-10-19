@@ -12,7 +12,10 @@ public class RellenadoPuntos {
 
 
     }
-
+/*
+¡¡¡¡¡¡¡¡¡¡NO TOCAR!!!!!!!!!!
+NI EL MISMO PROGRAMADOR SABE COMO FUNCIONA
+ */
     private static void parametros() {
         Scanner entrada = new Scanner(System.in);
 
