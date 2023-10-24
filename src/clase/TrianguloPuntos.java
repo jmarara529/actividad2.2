@@ -4,6 +4,7 @@ public class TrianguloPuntos {
 
     public static String punto = "*";
     public static int filas = 20;
+    public static String relleno = "-";
 
 
     public static void main(String[] args) {
@@ -26,7 +27,7 @@ public class TrianguloPuntos {
 
         for (int espacios = 0; espacios < totalespacios; espacios++) {
 
-            System.out.print(" ");
+            System.out.print(relleno);
 
         }
 
