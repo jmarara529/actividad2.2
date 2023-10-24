@@ -14,15 +14,15 @@ public static String paloCarta;
         System.out.println("introduce inicial del paloo (C=COPAS, E=ESPADAS, O=OROS, B=BASTOS):");
         char palo = entrada.next().charAt(0);
 
-        NumeroCarta(carta);
+        String numerocarta = NumeroCarta(carta);
 
-        PaloCarta(palo);
+        String palocarta =PaloCarta(palo);
 
-
+        dibujarcarta(numerocarta, palocarta);
 
     }
 
-    private static void PaloCarta(char palo) {
+    private static String PaloCarta(char palo) {
         switch (palo){
             case 'o': case 'O':
                 paloCarta ="OROS";
@@ -37,12 +37,15 @@ public static String paloCarta;
                 paloCarta = "BASTOS";
                 break;
             default:
-                paloCarta = "xxxxx";
+                paloCarta = String.valueOf(palo);
                 break;
         }
+
+        return paloCarta;
+
     }
 
-    private static void NumeroCarta(int carta) {
+    private static String NumeroCarta(int carta) {
         String numero;
         switch (carta){
 
@@ -63,6 +66,42 @@ public static String paloCarta;
                 break;
 
         }
+
+        return numero;
+
     }
+
+    public static void dibujarcarta(String numero, String palo) {
+
+        for (int i = 0; i < 2; i++) {
+            pintarFila('+', '-', "", 14, 'D');
+
+            if (i == 0) {
+                pintarFila('|', ' ', numero, 14, 'D');
+                pintarFila('|', ' ', palo, 14, 'D');
+
+                for (int j = 0; j < 4; j++) {
+                    pintarFila('|', ' ', "", 14, 'D');
+                }
+
+                pintarFila('|', ' ', palo, 14, 'I');
+
+            }
+        }
+    }
+
+        public static void pintarFila(char delimitador, char relleno, String contenido, int tamano, char direccion){
+
+            while (contenido.length() < (tamano-4)){
+                if(direccion == 'D')
+                    contenido = contenido + String.valueOf(relleno);
+                else
+                    contenido = String.valueOf(relleno) + contenido;
+            }
+            contenido = String.valueOf(delimitador) + String.valueOf(relleno) + contenido + String.valueOf(relleno) + String.valueOf(delimitador);
+
+            System.out.println(contenido);
+
+        }
 
 }

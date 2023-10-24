@@ -8,22 +8,58 @@ public class AdivinaNumero {
     public static int intentos = 10;
     public static void main(String[] args) {
 
-        int num;
-        Scanner entrada = new Scanner(System.in);
+        int num = NumPerson();
 
-
-
-
-        mayoromenor(num);
-
-        entrada.close();
 
     }
 
-    private static void mayoromenor(int num){
+    private static int NumPerson(){
 
-        if (num > NumMaquina) System.out.println("el numero es menor");
-        else System.out.println("el numero es mayor");
+        Scanner entrada = new Scanner(System.in);
+        int num;
+        for (num = 0;num != NumMaquina ; intentos--) {
+
+            System.out.println("intentos restantes = " + intentos);
+            if (intentos != 0){
+
+                System.out.println("introduce un numero");
+                num = entrada.nextInt();
+
+                mayoromenorigual(num);
+
+            } else if (intentos == 0) {
+
+                System.out.println("se acabaron los intentos");
+                System.out.println("el numero era " + NumMaquina);
+                System.exit(0);
+
+            }
+
+
+        }
+
+        entrada.close();
+
+        return num;
+
+    }
+
+    private static void mayoromenorigual(int num){
+        if (num == NumMaquina){
+
+            System.out.println("Felicidades, el numero " + num + " es el numero correcto");
+
+            System.exit(0);
+
+        }else if (num > NumMaquina){
+
+            System.out.println("el numero es menor");
+
+        }else {
+
+            System.out.println("el numero es mayor");
+
+        }
 
     }
 
